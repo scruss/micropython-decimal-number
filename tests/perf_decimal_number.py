@@ -11,7 +11,13 @@ if sys.implementation.name == "cpython":
     pi_decimals: int = 1000
 if sys.implementation.name == "micropython":
     import machine
-    import utime
+    import time
+    iteration_limit: int = 1000
+    iteration_limit2: int = 400
+    pi_decimals: int = 300
+if sys.implementation.name == "circuitpython":
+    import microcontroller
+    import supervisor
     iteration_limit: int = 1000
     iteration_limit2: int = 400
     pi_decimals: int = 300
@@ -32,6 +38,9 @@ def system_machine_info() -> None:
     if sys.implementation.name == "micropython":
         print(format_str.format("CPU frequency:"),
               machine.freq() // 1000000, "Mhz")
+    if sys.implementation.name == "circuitpython":
+        print(format_str.format("CPU frequency:"),
+              microcontroller.cpu.frequency // 1000000, "Mhz")
 
 def get_time_ms() -> int:
     """It gets the time in miliseconds.
@@ -39,7 +48,9 @@ def get_time_ms() -> int:
     if sys.implementation.name == "cpython":
         return round(time.time() * 1000)
     if sys.implementation.name == "micropython":
-        return utime.ticks_ms()
+        return time.ticks_ms()
+    if sys.implementation.name == "circuitpython":
+        return supervisor.ticks_ms()
 
 def gen_random_number() -> DecimalNumber:
     """Generates a random number with a number of decimals equal to scale.
@@ -249,3 +260,4 @@ perf_decimal_number(iteration_limit2, iteration_limit2 // 100)
 
 print_title("CALCULATING PI")
 perf_decimal_number_pi()
+
