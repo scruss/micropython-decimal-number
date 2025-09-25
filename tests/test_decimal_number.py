@@ -6,6 +6,8 @@ if sys.implementation.name == "cpython":
     import traceback
 if sys.implementation.name == "micropython":
     pass
+if sys.implementation.name == "circuitpython":
+    pass
 
 
 class TestDecimalNumber():
@@ -1407,3 +1409,4 @@ if __name__ == "__main__":
         print("Result: 1 test failed")
     else:
         print("Result: {0} tests failed".format(failed_counter))
+
