@@ -4,12 +4,14 @@ if sys.implementation.name == "cpython":        # micropython does not include '
     from typing import Tuple
 if sys.implementation.name == "micropython":    # Just in case...
     pass
+if sys.implementation.name == "circuitpython":    # Also just in case...
+    pass
 
 
 class DecimalNumber:
     """DecimalNumber is a class for decimal floating point arithmetic with arbitrary precision."""
-    VERSION = (1, 0, 0)
-    VERSION_NAME = "v1.0.0 - August 2021"
+    VERSION = (1, 0, 1)
+    VERSION_NAME = "v1.0.1 - September 2025"
     DEFAULT_SCALE: int = 16
     DECIMAL_SEP: str = "."
     THOUSANDS_SEP: str = ","
@@ -1101,3 +1103,4 @@ class DecimalNumberExceptionDivisionByZeroError(DecimalNumberException):
 
 if __name__ == "__main__":
     print("DecimalNumber module -", DecimalNumber.VERSION)
+
