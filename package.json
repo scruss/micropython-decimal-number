@@ -1,0 +1,10 @@
+{
+    "urls": [
+        [
+            "decimal.py",
+            "github:scruss/micropython-decimal/mpy_decimal/decimal.py"
+        ]
+    ],
+    "deps": [],
+    "version": "1.0.1"
+}
