@@ -2,9 +2,9 @@
     "urls": [
         [
             "decimal.py",
-            "github:scruss/micropython-decimal-number/mpy_decimal/decimal.py"
+            "github:scruss/micropython-decimal-number/mpy_decimal/mpy_decimal.py"
         ]
     ],
     "deps": [],
-    "version": "1.0.1"
+    "version": "1.0.2"
 }
